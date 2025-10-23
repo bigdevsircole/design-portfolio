@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Hamburger Menu
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  const navLinksAnchors = document.querySelectorAll('.nav-links a');
+
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent event from bubbling up
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when clicking on a link
+  navLinksAnchors.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
+    }
+  });
+
+  // Prevent clicks inside the menu from closing it
+  navLinks.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
   // Loader
   const loader = document.getElementById('loader');
   setTimeout(() => loader.classList.add('hidden'), 1500);
