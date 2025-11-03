@@ -389,33 +389,7 @@ body.light-mode .skill-tags span {
 }
 
 /* Lightbox styles */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.85);
-  z-index: 2000;
-  padding: 20px;
-}
-.lightbox.active {
-  display: flex;
-}
-.lightbox img {
-  max-width: 95%;
-  max-height: 95%;
-  border-radius: 8px;
-  box-shadow: var(--shadow);
-}
-.lightbox .close {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 2rem;
-  color: var(--light);
-  cursor: pointer;
-}
+/* lightbox removed */
 
 .tile-overlay {
   position: absolute;

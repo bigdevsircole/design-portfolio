@@ -78,42 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // Ignore if attribute can't be set
     }
   });
-
-  // Simple lightbox implementation for tiles
-  (function setupLightbox() {
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
-    lightbox.innerHTML = '<img src="" alt="preview"><span class="close" aria-hidden="true">&times;</span>';
-    document.body.appendChild(lightbox);
-
-    const lbImg = lightbox.querySelector('img');
-    const lbClose = lightbox.querySelector('.close');
-
-    document.querySelectorAll('.tile').forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        lbImg.src = img.src;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    // close when clicking overlay or close button
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox || e.target === lbClose) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-
-    // close on ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  })();
+  // lightbox removed; lazy-loading retained
   
   // Contact Form with EmailJS
   const contactForm = document.getElementById('contactForm');
