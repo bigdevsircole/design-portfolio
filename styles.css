@@ -372,14 +372,49 @@ body.light-mode .skill-tags span {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: var(--transition);
+  /* Keep grid tidy: limit tile height and center image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 320px;
 }
 
 .tile {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 320px; /* limit image height so rows stay tidy */
   object-fit: contain; /* ensure entire image is visible */
   transition: var(--transition);
+}
+
+/* Lightbox styles */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.85);
+  z-index: 2000;
+  padding: 20px;
+}
+.lightbox.active {
+  display: flex;
+}
+.lightbox img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.lightbox .close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 2rem;
+  color: var(--light);
+  cursor: pointer;
 }
 
 .tile-overlay {
